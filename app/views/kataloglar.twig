@@ -1,0 +1,39 @@
+{% include 'header.twig' %}
+<div class="page-banner-area">
+    <div class="container">
+        <div class="page-banner-content">
+            <h2>Kataloglar</h2>
+            <ul class="pages-list">
+                    <li><a href="/">Galeri</a></li>
+                <li>Kataloglar</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+<section class="gallery-area pt-100 pb-100">
+  <div class="container">
+      <div class="row">
+
+  
+        {% for file in fileList %}  
+         <div class="col-lg-3 col-md-3">
+            <div class="main-img">
+               <img src="assets/images/pdf.jpg" alt="{{ file['file_name'] }}">
+               <hr>
+               <center><h5>{{ file['file_name'] }}</h5></center>
+               <br>
+               <center><a href="{{ file['file_url'] }}" class="btn btn-primary" target="_blank"><i class="fa fa-download" aria-hidden="true"></i> PDF indir</a></center><br>
+            </div>
+         </div>
+        {% endfor %} 
+        
+      </div>
+   </div>
+   </div>
+   </section>
+   
+{% include 'footer.twig' %}
+

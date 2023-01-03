@@ -1,0 +1,64 @@
+{% include 'header.twig' %}
+
+ <!--================Banner Area =================-->
+        <section class="banner_area">
+            <div class="container">
+                <div class="banner_inner_content">
+                    <h3>Banka Hesapları</h3>
+                    <ul>
+                        <li class="active"><a href="/">Ana Sayfa</a></li>
+                        <li><a href="#">Banka Hesapları</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!--================End Banner Area =================-->
+
+<section class="spa_area">
+    <div class="container">
+            {{  page["page_content"] }}
+
+
+
+
+      <div class="row">
+
+                  {% for bank in bankAccounts %}  
+
+          
+         <div class="col-lg-4 col-md-6">
+            <div class="pricing-content">
+               <center><img src="{{ bank['bank_gorsel'] }}" style="height: 80px; margin-bottom: 15px"></center>
+
+
+                <table class="table">
+                
+                  <tbody>
+                    <tr>
+                      <th scope="row">Ad Soyad</th>
+                      <td>{{ bank['bank_alici'] }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">IBAN</th>
+                      <td><code>{{ bank['bank_iban'] }}</code></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Hesap No</th>
+                      <td>{{ bank['bank_hesap'] }}</td>
+                    </tr>
+                       <tr>
+                      <th scope="row">Şube</th>
+                      <td>{{ bank['bank_sube'] }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+          </div>
+         </div>
+         {% endfor %}
+      </div>
+              </div>
+    </div>
+</section>
+   
+
+{% include 'footer.twig' %}

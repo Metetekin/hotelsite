@@ -1,0 +1,131 @@
+{% include 'header.twig' %}
+
+
+ <!--================Banner Area =================-->
+        <section class="banner_area">
+            <div class="container">
+                <div class="banner_inner_content">
+                    <h3>Bize Ulaşın</h3>
+                    <ul>
+                        <li class="active"><a href="/">Ana Sayfa</a></li>
+                        <li><a href="#">İletişim</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!--================End Banner Area =================-->
+
+<section class="get_contact_area">
+            <div class="container">
+                <div class="row get_contact_inner">
+                    <div class="col-md-6">
+                        <div class="left_ex_title">
+                            <h2>İletişime <span>Geç</span></h2>
+                        </div>
+
+                        
+                        
+                              <form method="POST" action=""  class="contact_us_form row m0" >
+            <div class="row">
+                        {% if errorText %}
+            <div class="alert alert-dismissible alert-danger">
+               {{ errorText }}
+            </div>
+            <hr>
+        {% endif %}
+        {% if successText %}
+            <div class="alert alert-dismissible alert-success">
+               {{ successText }}
+            </div>
+            <hr>
+        {% endif %}
+                
+               <div class="col-lg-4 col-md-6">
+                  <div class="form-group">
+                     <input type="text" name="name" id="name" class="form-control" required data-error="Lütfen ad soyad yazınız" placeholder="Ad Soyad" required>
+                     <div class="help-block with-errors"></div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6">
+                  <div class="form-group">
+                     <input type="email" name="email" id="email" class="form-control" required data-error="Lütfen e-posta adresi yazınız" placeholder="E-Posta" required>
+                     <div class="help-block with-errors"></div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-12">
+                  <div class="form-group">
+                     <input type="text" name="telephone" id="phone_number" required data-error="Lütfen telefon numarası yazınız" class="form-control" placeholder="Telefon" required>
+                     <div class="help-block with-errors"></div>
+                  </div>
+               </div>
+               <div class="col-md-12 col-lg-12">
+                  <div class="form-group">
+                     <input type="text" name="subject" id="phone_number" required data-error="Lütfen mesaj başlığı yazınız" class="form-control" placeholder="Mesaj Başlığı" required>
+                     <div class="help-block with-errors"></div>
+                  </div>
+               </div>
+               <div class="col-md-12 col-lg-12">
+                  <div class="form-group">
+                     <textarea name="message" class="form-control" id="message" rows="6" required data-error="Lütfen mesaj içeriği yazınız" placeholder="Mesaj İçeriği" required></textarea>
+                     <div class="help-block with-errors"></div>
+                  </div>
+               </div>
+               <div class="col-lg-12" style="padding-bottom: 20px"> 
+                  {% if captcha %}
+                    <div class="form-group">
+                      <div class="g-recaptcha" data-sitekey="{{ captchaKey }}"></div>
+                    </div>
+                  {% endif %}
+</div>
+               
+               <div class="col-md-12 col-lg-12">
+                  <button type="submit" class="btn submit_btn form-control">Mesaj Gönder</button>
+                  <div class="clearfix"></div>
+               </div>
+            </div>
+         </form>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="right_contact_info">
+                            <div class="contact_info_title">
+                                <h3>İletişim Bilgileri</h3>
+                                <p>Bir sorunuz mu var? Hemen bizimle iletişme geçin ve size yardımcı olalım.</p>
+                            </div>
+                            <div class="contact_info_list">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <i class="fa fa-map-marker"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4>Adresimiz</h4>
+                                        <p>{{ settings["site_address"] }}</p>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <i class="fa fa-envelope-o"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4>Email</h4>
+                                        <a href="#">{{ settings["site_mail"] }}</a>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <i class="fa fa-phone"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4>Telefon</h4>
+                                        <a href="#">{{ settings["site_telephone"] }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<script type="text/javascript" src="https://www.google.com/recaptcha/api.js"></script>
+
+{% include 'footer.twig' %}
